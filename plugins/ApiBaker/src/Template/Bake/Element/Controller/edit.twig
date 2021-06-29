@@ -1,0 +1,39 @@
+{#
+/** 
+ * @copyright 2019 - Ricardo Aranha - grupogrow.com.br 
+ */
+#}
+{% set belongsTo = Bake.aliasExtractor(modelObj, 'BelongsTo') %}
+{% set belongsToMany = Bake.aliasExtractor(modelObj, 'belongsToMany') %}
+    /**
+     * Edit method
+     *
+     * @param string|null $id {{ singularHumanName }} id.
+     * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function edit($id)
+    {
+        $this->request->allowMethod(['put','patch']);
+        ${{ singularName }} = $this->{{ currentModelName }}->get($id, [
+            'contain' => [{{ Bake.stringifyList(belongsToMany, {'indent': false})|raw }}]
+        ]);
+        ${{ singularName }} = $this->{{ currentModelName }}->patchEntity(${{ singularName }}, $this->request->getData());
+        if ($this->{{ currentModelName }}->save(${{ singularName }})) {
+            $this->set([
+                'result' => [
+                    'success' => true,
+                    'data' => ${{ singularName }}
+                ],
+                '_serialize' => 'result'
+            ]);
+        } else {
+            $this->set([
+                'result' => [
+                    'success' => false,
+                    'errors' => ${{ singularName }}->getErrors()
+                ],
+                '_serialize' => 'result'
+            ]);
+        }
+    }

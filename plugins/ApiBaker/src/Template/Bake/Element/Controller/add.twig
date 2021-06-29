@@ -1,0 +1,33 @@
+{#
+/** 
+ * @copyright 2019 - Ricardo Aranha - grupogrow.com.br 
+ */
+#}
+    /**
+     * Add method
+     *
+     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
+     */
+    public function add()
+    {
+        $this->request->allowMethod(['post']);
+        ${{ singularName }} = $this->{{ currentModelName }}->newEntity();
+        ${{ singularName }} = $this->{{ currentModelName }}->patchEntity(${{ singularName }}, $this->request->getData());
+        if ($this->{{ currentModelName }}->save(${{ singularName }})) {            
+            $this->set([
+                'result' => [
+                    'success' => true,
+                    'data' => ${{ singularName }}
+                ],
+                '_serialize' => 'result'
+            ]);
+        } else {
+            $this->set([
+                'result' => [
+                    'success' => false,
+                    'errors' => ${{ singularName }}->getErrors()
+                ],
+                '_serialize' => 'result'
+            ]);
+        }                    
+    }

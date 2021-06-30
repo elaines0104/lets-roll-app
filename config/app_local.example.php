@@ -44,7 +44,7 @@ return [
              */
             //'port' => 'non_standard_port_number',
             'username' => 'b732161dfa8383',
-            'password' => 'b1bfee12@',
+            'password' => 'b1bfee12',
             'database' => 'heroku_3fea71d2f068f62',
             'log' => true,
             'url' => env('DATABASE_URL', null),

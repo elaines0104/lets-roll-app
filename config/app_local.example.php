@@ -36,7 +36,7 @@ return [
      */
     'Datasources' => [
         'default' => [
-            'host' => 'us-cdbr-east-04.cleardb.com/heroku_3fea71d2f068f62?reconnect=true',
+            'host' => 'us-cdbr-east-04.cleardb.com/heroku_3fea71d2f068f62',
             /*
              * CakePHP will use the default DB port based on the driver selected
              * MySQL on MAMP uses port 8889, MAMP users will want to uncomment

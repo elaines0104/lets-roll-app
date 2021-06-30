@@ -43,7 +43,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'Categoria de Evento 1'),(2,'Patins'),(3,'Skate');
+INSERT INTO `categories` VALUES (1,'ROLLERSKATE'),(2,'SKATE'),(3,'BIKE');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 

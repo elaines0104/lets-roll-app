@@ -45,6 +45,9 @@ class ApiAppController extends Controller
             'enableBeforeRedirect' => false,
         ]);
         $this->loadComponent('Flash');
+
+        header('Access-Control-Allow-Origin: *');
+
         $this->RequestHandler->renderAs($this, 'json');
 
 
